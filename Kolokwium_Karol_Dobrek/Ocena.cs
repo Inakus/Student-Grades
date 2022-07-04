@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kolokwium_Karol_Dobrek
+namespace StudentGrades
 {
     public class Ocena<T,S>: Element<T>
     { 

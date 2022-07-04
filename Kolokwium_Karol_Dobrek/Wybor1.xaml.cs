@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Kolokwium_Karol_Dobrek
+namespace StudentGrades
 {
     /// <summary>
     /// Logika interakcji dla klasy Wybor1.xaml

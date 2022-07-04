@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Kolokwium_Karol_Dobrek
+namespace StudentGrades
 {
     /// <summary>
     /// Interaction logic for App.xaml
