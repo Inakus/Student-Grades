@@ -1,0 +1,19 @@
+﻿<Window x:Class="Kolokwium_Karol_Dobrek.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kolokwium_Karol_Dobrek"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="DaneG" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,76,400,0" SelectionChanged="DataGrid_SelectionChanged"/>
+        <Button x:Name="Dodaj" Content="Dodaj osobe" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="71" Click="Dodaj_Click"/>
+        <Button x:Name="Usun" Content="Usun osobe" HorizontalAlignment="Left" Margin="98,31,0,0" VerticalAlignment="Top" Width="78" Click="Usun_click"/>
+        <DataGrid x:Name="OcenyG" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="405,76,0,0" SelectionChanged="OcenyG_SelectionChanged"/>
+        <Button x:Name="Dodaj_ocene" Content="Dodaj Ocene" HorizontalAlignment="Left" Margin="448,31,0,0" VerticalAlignment="Top" Click="Dodaj_ocene_Click"/>
+        <Button x:Name="Usun_ocene" Content="Usun Ocene" HorizontalAlignment="Left" Margin="574,41,0,0" VerticalAlignment="Top" Click="Usun_ocene_Click"/>
+        <Button x:Name="Edycja" Content="Edycja" HorizontalAlignment="Left" Margin="200,31,0,0" VerticalAlignment="Top" Click="Edycja_Click"/>
+
+    </Grid>
+</Window>
