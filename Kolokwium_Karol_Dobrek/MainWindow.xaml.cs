@@ -20,27 +20,31 @@ namespace Kolokwium_Karol_Dobrek
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        List<Student<string>> stud { get; set; }
-
-        List<Ocena<string, string>> ocena { get; set; }
+        public Student<float> Students { get; set; }
+        List<Student<float>> stud { get; set; }
+        List<Ocena<float,float>> ocena { get; set; }
 
         public MainWindow()
         {
-            ocena = new List<Ocena<string, string>>()
+            stud = new List<Student<float>>()
             {
-                new Ocena<string, string>() { Id = "1", Data = DateTime.MaxValue, Przedmiot = "Programowanie obiektowe", Wartosc = "4" }
+                new Student<float>() { Id = 1, Imie = "Karol", Nazwisko = "Dobrek", NrIndeksu = 11111, Oceny =  ocena },
             };
 
-            stud = new List<Student<string>>()
+            ocena = new List<Ocena<float, float>>()
             {
-                new Student<string>() { Id = "1", Imie = "Karol", Nazwisko = "Dobrek", NrIndeksu = "11111" }
+                new Ocena<float, float>() { Id = 1, Data = DateTime.MaxValue, Przedmiot = "Programowanie obiektowe", Wartosc = 4 }
             };
+
+            
             InitializeComponent();
+
+            
+
+            
 
 
             DaneG.ItemsSource = stud;
-            OcenyG.ItemsSource = ocena;
         }
 
 
@@ -60,6 +64,15 @@ namespace Kolokwium_Karol_Dobrek
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        private void DG1_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            string headername = e.Column.Header.ToString();
+
+            if(headername == "Oceny")
+            {
+                e.Cancel = true;
+            }
         }
 
         private void Usun_click(object sender, RoutedEventArgs e)
@@ -94,7 +107,7 @@ namespace Kolokwium_Karol_Dobrek
 
         private void Edycja_Click(object sender, RoutedEventArgs e)
         {
-            if (DaneG.SelectedItems != null)
+            if (DaneG.SelectedIndex >= 0)
             {
                 var list = new Wybor(stud[DaneG.SelectedIndex]);
                 if (list.ShowDialog() == true)
@@ -103,6 +116,7 @@ namespace Kolokwium_Karol_Dobrek
                     DaneG.Items.Refresh();
                 }
             }
+            
         }
     }
 }

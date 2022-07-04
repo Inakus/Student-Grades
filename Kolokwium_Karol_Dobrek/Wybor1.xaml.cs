@@ -19,27 +19,35 @@ namespace Kolokwium_Karol_Dobrek
     /// </summary>
     public partial class Wybor1 : Window
     {
-        public Ocena<string,string> ocena { get; set; }
+        public Ocena<float,float> ocena { get; set; }
 
-        public Wybor1(Ocena<string, string> Ocena = null)
-        {
+        public Wybor1(Ocena<float, float>? Ocena = null)
+        { 
             InitializeComponent();
-            if(ocena != null)
+            float ocenaId;
+            bool validID = float.TryParse(Id.Text, out ocenaId);
+            float ocenaWartosc;
+            bool validIndex = float.TryParse(Wartosc.Text, out ocenaWartosc);
+            if (ocena != null)
             {
-                Id.Text = Ocena.Id;
-                Przedmiot.Text =Ocena.Przedmiot;
+                ocenaId = Ocena.Id;
+                Przedmiot.Text = Ocena.Przedmiot;
                 Data.DataContext = Ocena.Data;
-                Wartosc.Text =Ocena.Wartosc;
+                ocenaWartosc = Ocena.Wartosc;
             }
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            ocena = new Ocena<string, string>
+            float ocenaId;
+            bool validID = float.TryParse(Id.Text, out ocenaId);
+            float ocenaWartosc;
+            bool validIndex = float.TryParse(Wartosc.Text, out ocenaWartosc);
+            ocena = new Ocena<float, float>
             {
-                Id = Id.Text,
+                Id = ocenaId,
                 Przedmiot = Przedmiot.Text,
-                Wartosc = Wartosc.Text
+                Wartosc = ocenaWartosc
             };
 
             DialogResult = true;

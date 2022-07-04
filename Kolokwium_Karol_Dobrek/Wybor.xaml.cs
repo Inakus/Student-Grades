@@ -20,27 +20,35 @@ namespace Kolokwium_Karol_Dobrek
     public partial class Wybor : Window
     {
         //private Student<string> Student;
-        public Student<string> student { get; set; }
-        public Wybor(Student<string> Student = null)
+        public Student<float> student { get; set; }
+        public Wybor(Student<float>? Student = null)
         {
             InitializeComponent();
-            if(Student != null)
+            float studentId;
+            float studentIndex;
+            bool validId = float.TryParse(Id.Text, out studentId);
+            bool validIndex = float.TryParse(NrIndeksu.Text, out studentIndex);
+            if (Student != null)
             {
                 Imie.Text = Student.Imie;
                 Nazwisko.Text = Student.Nazwisko;
-                Id.Text = Student.Id;
-                NrIndeksu.Text = Student.NrIndeksu;
+                studentId = Student.Id;
+                studentIndex = Student.NrIndeksu;
             }
         }
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            student = new Student<string>()
+            float studentId;
+            float studentIndex;
+            bool validId = float.TryParse(Id.Text, out studentId);
+            bool validIndex = float.TryParse(NrIndeksu.Text, out studentIndex);
+            student = new Student<float>()
             {
-                Id = Id.Text,
+                Id = studentId,
                 Imie = Imie.Text,
                 Nazwisko = Nazwisko.Text,
-                NrIndeksu = Id.Text,
+                NrIndeksu = studentIndex,
             };
 
             DialogResult = true;

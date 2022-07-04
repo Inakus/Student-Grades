@@ -8,6 +8,6 @@ namespace Kolokwium_Karol_Dobrek
 {
     public abstract class Element<T>
     {
-        public T Id { get; set; }
+        public T? Id { get; set; }
     }
 }

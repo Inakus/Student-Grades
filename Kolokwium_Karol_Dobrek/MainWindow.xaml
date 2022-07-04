@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="DaneG" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,76,400,0" SelectionChanged="DataGrid_SelectionChanged"/>
+        <DataGrid x:Name="DaneG" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,76,400,0" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="True" AutoGeneratingColumn="DG1_AutoGeneratingColumn"/>
         <Button x:Name="Dodaj" Content="Dodaj osobe" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="71" Click="Dodaj_Click"/>
         <Button x:Name="Usun" Content="Usun osobe" HorizontalAlignment="Left" Margin="98,31,0,0" VerticalAlignment="Top" Width="78" Click="Usun_click"/>
         <DataGrid x:Name="OcenyG" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="405,76,0,0" SelectionChanged="OcenyG_SelectionChanged"/>
